@@ -5,6 +5,8 @@ import Checkbox from "./Checkbox";
 import Input from "./Input";
 
 const Modal = ({
+  activeState,
+  toggleModal,
   payment,
   feedback,
   vector,
@@ -14,11 +16,22 @@ const Modal = ({
   transactions,
   amount,
 }) => {
-  const [recentActive, setRecentActive] = useState(false);
+  const [recentActive, setRecentActive] = useState(true);
 
   return (
-    <div className={clsx("custom-modal", { feedback: feedback })}>
-      <div className="close">
+    <div
+      className={clsx(
+        "custom-modal",
+        { feedback: feedback },
+        { active: activeState }
+      )}
+    >
+      <div
+        onClick={() => {
+          toggleModal((prevState) => !prevState);
+        }}
+        className="close"
+      >
         <img className="" src="./assets/vectors/modal-close.svg" alt="close" />
       </div>
 
