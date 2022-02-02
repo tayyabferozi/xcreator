@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.btn.btn-download::before {
+  content: "";
+  position: absolute;
+  border-radius: 14px;
+  width: calc(100% + -1px);
+  height: calc(100% + 1px);
+  -webkit-box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.2);
+          box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+body {
+  background-color: #161923;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1 {
+  font-family: "poppins", sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+input {
+  outline: none;
+}
+
+.btn {
+  border: none;
+}
+
+.btn.btn-download {
+  position: relative;
+  background: rgba(36, 40, 54, 0.5);
+  padding: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border-radius: 14px;
+  margin: 0 15px;
+  overflow: hidden;
+}
+
+.btn.btn-download:first-child {
+  margin-left: 0;
+}
+
+.btn.btn-download:last-child {
+  margin-right: 0;
+}
+
+.download-btns {
+  margin-top: 40px;
+}
+
+.label-container {
+  position: relative;
+  height: 14px;
+  opacity: 0.2;
+  margin: 28px 0;
+}
+
+.label-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% + 1px);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 1px;
+  border-top: 1px solid #fff;
+  z-index: 0;
+}
+
+.label-container .label {
+  position: absolute;
+  font-weight: 10px;
+  padding: 0 0.5rem;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 1;
+  background: #161923;
+}
+
+.custom-form-control input {
+  border-radius: 10px;
+  border: none;
+  padding: 17px;
+  padding-left: 60px;
+  color: #fff;
+  background-color: rgba(36, 40, 54, 0.5);
+  font-size: 14px;
+}
+
+.custom-form-control input::-webkit-input-placeholder {
+  opacity: 0.4;
+}
+
+.custom-form-control input:-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.custom-form-control input::-ms-input-placeholder {
+  opacity: 0.4;
+}
+
+.custom-form-control input::placeholder {
+  opacity: 0.4;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
+#auth {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+#auth .left {
+  width: 40%;
+  padding: 110px 90px;
+}
+
+#auth .left p {
+  max-width: 250px;
+}
+
+#auth .right {
+  position: relative;
+  height: 100%;
+  width: 60%;
+}
+
+#auth .right::after, #auth .right::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  padding-top: 100%;
+}
+
+#auth .right::before {
+  width: 200%;
+  padding-top: 200%;
+  opacity: 0.2;
+  left: 80%;
+  top: 70%;
+  background: radial-gradient(circle, #fff 0%, rgba(2, 0, 36, 0) 70%);
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+#auth .right::after {
+  width: 200%;
+  padding-top: 200%;
+  opacity: 0.2;
+  left: 50%;
+  bottom: 70%;
+  background: radial-gradient(circle, #feea00 0%, rgba(2, 0, 36, 0) 70%);
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+#auth .right .logo-container {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#auth .right .logo-container img {
+  width: 100%;
+}
+
+#auth .right .logo-container::before, #auth .right .logo-container::after {
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+}
+
+#auth .right .logo-container::before {
+  opacity: 0.1;
+  right: 30%;
+  bottom: 65%;
+  background: radial-gradient(circle, white 0%, rgba(2, 0, 36, 0) 70%);
+}
+
+#auth .right .logo-container::after {
+  opacity: 0.1;
+  left: 30%;
+  top: 65%;
+  background: radial-gradient(circle, #feea00 0%, rgba(2, 0, 36, 0) 70%);
+}
+
+#auth .right img.circle, #auth .right img.white {
+  position: absolute;
+}
+
+#auth .right img.circle {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+#auth .right img.logo-container {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 1;
+}
+/*# sourceMappingURL=styles.css.map */

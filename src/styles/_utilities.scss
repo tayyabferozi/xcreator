@@ -1,0 +1,243 @@
+@import "_colors.scss";
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $color1;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0.5;
+}
+
+%outline {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  border-radius: 14px;
+  width: calc(100% + -1px);
+  height: calc(100% + 1px);
+  box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+body {
+  background-color: $color2;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1 {
+  font-family: "poppins", sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+input {
+  outline: none;
+}
+
+.text-yellow {
+  // color: $color3;
+  background: linear-gradient(7deg, $color8 10%, $color9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-container {
+  flex-grow: 1;
+  position: relative;
+
+  .bg {
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    top: 25%;
+    opacity: 0.5;
+    transition: 0.4s ease;
+  }
+
+  &:hover {
+    .bg {
+      opacity: 0.7;
+    }
+  }
+}
+
+.btn {
+  border: none;
+
+  &.btn-download {
+    position: relative;
+    background: $color4;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: 0.4s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    &::before {
+      @extend %outline;
+    }
+  }
+
+  &.primary {
+    position: relative;
+    border-radius: 10px;
+    color: $color5;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 15px;
+    // background: linear-gradient(25deg, $color8 40%, $color9 100%);
+    background: linear-gradient(7deg, $color8 10%, $color9 100%);
+    transition: 0.4s ease;
+
+    &::after {
+      // content: url("./assets/vectors/bg-primary-btn.svg");
+      // content: "";
+      // position: absolute;
+      // width: 80%;
+      // height: 60%;
+      // // background: linear-gradient(25deg, $color3, rgba(0, 0, 0, 0));
+      // background: linear-gradient(
+      //   to bottom,
+      //   $color3 0%,
+      //   rgba(2, 0, 36, 0) 100%
+      // );
+      // left: 50%;
+      // top: 60%;
+      // transform: translate(-50%, 0);
+      // z-index: -1;
+      // opacity: 0.5;
+      // border-radius: 50px;
+    }
+  }
+}
+
+.download-btns {
+  margin-top: 40px;
+
+  .btn-container {
+    margin: 0 15px;
+
+    @media screen and (max-width: 575px) {
+      margin: 0 10px;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.label-container {
+  position: relative;
+  height: 14px;
+  opacity: 0.2;
+  margin: 28px 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(50% + 1px);
+    transform: translateY(-50%);
+    height: 1px;
+    border-top: 1px solid #fff;
+    z-index: 0;
+  }
+
+  .label {
+    position: absolute;
+    font-weight: 10px;
+    padding: 0 0.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background: $color2;
+  }
+}
+
+.custom-form-control {
+  position: relative;
+  margin-bottom: 14px;
+
+  &:before {
+    @extend %outline;
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 25px;
+  }
+
+  input {
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    padding: 17px;
+    padding-left: 60px;
+    color: #fff;
+    background-color: $color4;
+    font-size: 14px;
+
+    &::placeholder {
+      opacity: 0.4;
+    }
+  }
+}
+
+.search-input-container {
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 47%;
+    transform: translateY(-50%);
+    left: 24px;
+  }
+
+  input {
+    border-radius: 14px;
+    border: 1px solid $color7;
+    font-size: 12px;
+    padding: 12px;
+    background: $color6;
+    padding-left: 60px;
+  }
+}
