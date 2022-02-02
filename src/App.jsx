@@ -11,7 +11,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/lorem" element={<Modals />} />
         <Route path="/modals" element={<Modals />} />
         {/* <Route path="*" Navigate={<Navigate to="/" />} /> */}
         {/* <Route path="*" /> */}

@@ -1,23 +1,28 @@
 @import "_colors.scss";
 
-/* width */
-::-webkit-scrollbar {
-  width: 5px;
-}
+$primary-linear-gradient: linear-gradient(7deg, $color8 10%, $color9 100%);
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
+html {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: $color1;
-}
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  opacity: 0.5;
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    // background: $color1;
+    background: $primary-linear-gradient;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    opacity: 0.5;
+  }
 }
 
 %outline {
@@ -30,12 +35,22 @@
   box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.2);
 }
 
+%primary-text-gradient {
+  background: $primary-linear-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 body {
   background-color: $color2;
 }
 
 button {
   cursor: pointer;
+}
+
+.fs-12 {
+  font-size: 12px;
 }
 
 h1 {
@@ -45,21 +60,404 @@ h1 {
   margin-bottom: 0.75rem;
 }
 
+h6 {
+  font-size: 14px;
+
+  &.small {
+    font-size: 12px;
+  }
+}
+
 p {
   font-weight: 400;
   font-size: 12px;
   line-height: 1.8;
+
+  &.small {
+    font-size: 10px;
+  }
+
+  &.light {
+    opacity: 0.6;
+  }
 }
 
-input {
+// /* The container */
+// .checkbox-container {
+//   display: block;
+//   position: relative;
+//   padding-left: 35px;
+//   margin-bottom: 12px;
+//   cursor: pointer;
+//   font-size: 22px;
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+// }
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+// /* Create a custom checkbox */
+// .checkmark {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   height: 25px;
+//   width: 25px;
+//   background-color: #eee;
+// }
+
+// /* On mouse-over, add a grey background color */
+// .checkbox-container:hover input ~ .checkmark {
+//   background-color: #ccc;
+// }
+
+// /* When the checkbox is checked, add a blue background */
+// .checkbox-container input:checked ~ .checkmark {
+//   background-color: #2196f3;
+// }
+
+// /* Create the checkmark/indicator (hidden when not checked) */
+// .checkmark:after {
+//   content: "";
+//   position: absolute;
+//   display: none;
+// }
+
+// /* Show the checkmark when checked */
+// .checkbox-container input:checked ~ .checkmark:after {
+//   display: block;
+// }
+
+// /* Style the checkmark/indicator */
+// .checkbox-container .checkmark:after {
+//   left: 9px;
+//   top: 5px;
+//   width: 5px;
+//   height: 10px;
+//   border: solid white;
+//   border-width: 0 3px 3px 0;
+//   -webkit-transform: rotate(45deg);
+//   -ms-transform: rotate(45deg);
+//   transform: rotate(45deg);
+// }
+
+.checkbox-container {
+  position: relative;
+  padding-left: 32px;
+  cursor: pointer;
+
+  input {
+    & ~ .checkmark {
+      content: url("../vectors/checkbox-unchecked.svg");
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &:checked ~ .checkmark {
+      content: url("../vectors/checkbox-checked.svg");
+    }
+  }
+}
+
+input,
+select {
   outline: none;
 }
 
+.custom-modal {
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  transform: translateX(-50%);
+  background: $color6;
+  border-radius: 14px;
+  border: 1px solid $color7;
+  width: 82.75%;
+  max-width: 1260px;
+  overflow: hidden;
+
+  @media screen and (max-width: 575px) {
+    border-radius: 0;
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    width: 200px;
+    height: 200px;
+  }
+
+  &::before {
+    left: -95px;
+    top: -90px;
+    opacity: 0.1;
+    background: radial-gradient(circle, #fff 0%, rgba(2, 0, 36, 0) 70%);
+  }
+
+  &::after {
+    opacity: 0.06;
+    left: 230px;
+    top: 400px;
+    background: radial-gradient(circle, $color3 0%, rgba(2, 0, 36, 0) 70%);
+
+    @media screen and (max-width: 575px) {
+      display: none;
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    cursor: pointer;
+  }
+
+  .feedback-content {
+    padding: 100px 0 140px;
+    max-width: 355px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    @media screen and (max-width: 575px) {
+      max-width: 260px;
+      padding-bottom: 70px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .feedback-vector {
+      @media screen and (max-width: 575px) {
+        width: 100%;
+        max-width: 178px;
+      }
+    }
+
+    .success-vector {
+      transform: translateX(-10px);
+
+      @media screen and (max-width: 575px) {
+        max-width: 216px;
+      }
+    }
+
+    .title {
+      margin-top: 44px;
+      font-size: 30px;
+
+      @media screen and (max-width: 575px) {
+        font-size: 20px;
+        margin-top: 26px;
+      }
+    }
+
+    .sub-title {
+      font-size: 14px;
+      opacity: 0.6;
+
+      @media screen and (max-width: 575px) {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .payment-content {
+    .head,
+    .body {
+      background: $color6;
+    }
+
+    .head {
+      .main {
+        max-width: 430px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        padding: 70px 0 40px;
+
+        @media screen and (max-width: 575px) {
+          max-width: 260px;
+        }
+
+        .title {
+          font-size: 24px;
+
+          @media screen and (max-width: 575px) {
+            font-size: 20px;
+          }
+        }
+
+        .sub-title {
+          font-size: 14px;
+
+          @media screen and (max-width: 575px) {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+
+    .body {
+      .tabs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $color7;
+        border-left: 0;
+        border-right: 0;
+        margin-bottom: 22px;
+        background: $color6;
+
+        .tab {
+          position: relative;
+          opacity: 0.3;
+          padding: 24px 35px;
+          font-weight: 600;
+          font-size: 14px;
+
+          &.active {
+            opacity: 1;
+            @extend %primary-text-gradient;
+
+            &::after {
+              content: "";
+              position: absolute;
+              width: 4px;
+              height: 4px;
+              border-radius: 50%;
+              background: $primary-linear-gradient;
+              left: 50%;
+              bottom: 14px;
+              transform: translate(-50%, 0);
+            }
+          }
+        }
+      }
+
+      .transactions {
+        position: relative;
+        height: 340px;
+        overflow-y: auto;
+        z-index: 1;
+
+        &::-webkit-scrollbar {
+          width: 2px;
+        }
+
+        .transaction {
+          padding: 22px 72px;
+          border: 1px solid $color7;
+          border-left: 0;
+          border-right: 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: $color6;
+
+          @media screen and (max-width: 767px) {
+            padding-left: 30px;
+            padding-right: 30px;
+          }
+
+          @media screen and (max-width: 575px) {
+            padding-left: 12px;
+            padding-right: 12px;
+          }
+        }
+      }
+
+      .new-card {
+        padding: 0 72px;
+
+        @media screen and (max-width: 767px) {
+          padding: 0 30px;
+        }
+
+        @media screen and (max-width: 575px) {
+          padding: 0 12px;
+        }
+      }
+
+      .custom-form-control {
+        position: relative;
+        z-index: 1;
+      }
+
+      .pay-btn-container {
+        padding-right: 72px;
+        margin-bottom: 2rem;
+
+        @media screen and (max-width: 767px) {
+          padding: 0 30px;
+        }
+
+        @media screen and (max-width: 575px) {
+          padding: 0 25px;
+        }
+
+        .btn-container {
+          @media screen and (max-width: 575px) {
+            max-width: unset;
+            margin-top: 25px;
+          }
+
+          .bg {
+            @media screen and (max-width: 575px) {
+              top: 3vw;
+            }
+
+            @media screen and (max-width: 425px) {
+              top: 6vw;
+            }
+          }
+        }
+
+        .btn {
+          padding: 11px 26px;
+
+          * {
+            font-size: 13px;
+
+            .amount {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .btn-container {
+    margin-top: 50px;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (max-width: 575px) {
+      width: 100%;
+      margin-top: 128px;
+    }
+
+    .bg {
+      top: 60%;
+    }
+  }
+}
+
 .text-yellow {
-  // color: $color3;
-  background: linear-gradient(7deg, $color8 10%, $color9 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @extend %primary-text-gradient;
 }
 
 .btn-container {
@@ -86,6 +484,7 @@ input {
 
 .btn {
   border: none;
+  background: transparent;
 
   &.btn-download {
     position: relative;
@@ -111,13 +510,16 @@ input {
   &.primary {
     position: relative;
     border-radius: 10px;
-    color: $color5;
     font-size: 16px;
     font-weight: 600;
     padding: 15px;
-    // background: linear-gradient(25deg, $color8 40%, $color9 100%);
-    background: linear-gradient(7deg, $color8 10%, $color9 100%);
+    background: $primary-linear-gradient;
     transition: 0.4s ease;
+
+    &,
+    * {
+      color: $color5;
+    }
 
     &::after {
       // content: url("./assets/vectors/bg-primary-btn.svg");
@@ -206,7 +608,16 @@ input {
     left: 25px;
   }
 
-  input {
+  .select-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    pointer-events: none;
+  }
+
+  input,
+  select {
     width: 100%;
     border-radius: 10px;
     border: none;
@@ -219,6 +630,17 @@ input {
     &::placeholder {
       opacity: 0.4;
     }
+  }
+
+  select {
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+  }
+
+  select,
+  input.no-icon {
+    padding-left: 17px;
   }
 }
 

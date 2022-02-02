@@ -27,6 +27,12 @@
   text-decoration: none;
 }
 
+main {
+  padding-left: var(--section-padding);
+  padding-right: var(--section-padding);
+  position: relative;
+}
+
 #auth {
   height: 100vh;
   min-height: 900px;
@@ -271,6 +277,106 @@
 }
 
 #navbar {
+  position: relative;
+  padding: 33px;
   padding-left: var(--section-padding);
   padding-right: var(--section-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $color6;
+  border-bottom: 1px solid $color7;
+  overflow: hidden;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    width: 200px;
+    height: 200px;
+  }
+
+  .grad {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .grad {
+    width: 420px;
+    height: 400px;
+    left: 50%;
+    top: 50px;
+    transform: translateX(-50%);
+    opacity: 0.1;
+    background: radial-gradient(circle, #fff 0%, rgba(2, 0, 36, 0) 70%);
+    // background: red;
+  }
+
+  &::before {
+    left: -35px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.1;
+    background: radial-gradient(circle, #fff 0%, rgba(2, 0, 36, 0) 70%);
+  }
+
+  &::after {
+    opacity: 0.06;
+    right: -45px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: radial-gradient(circle, $color3 0%, rgba(2, 0, 36, 0) 70%);
+  }
+
+  .search-input-container {
+    margin-right: 90px;
+
+    @media screen and (max-width: 1350px) {
+      margin-right: 40px;
+    }
+
+    @media screen and (max-width: 991px) {
+      margin-right: 20px;
+    }
+
+    input {
+      width: 450px;
+
+      @media screen and (max-width: 1350px) {
+        width: 350px;
+      }
+
+      @media screen and (max-width: 1023px) {
+        width: 200px;
+      }
+    }
+  }
+
+  .nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    a {
+      display: block;
+      padding: 0 22px;
+
+      @media screen and (max-width: 991px) {
+        padding: 0 8px;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
 }

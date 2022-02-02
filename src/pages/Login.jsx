@@ -35,7 +35,7 @@ const Login = () => {
         <Button primary label="Create Account" />
 
         <p className="toggler">
-          Do you have an account?
+          Do you have an account?{" "}
           <span className="text-yellow">
             <Link to="/">Sign up</Link>
           </span>
