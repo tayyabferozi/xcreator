@@ -441,6 +441,10 @@ select {
       .custom-form-control {
         position: relative;
         z-index: 1;
+
+        &.select {
+          z-index: 2;
+        }
       }
 
       .pay-btn-container {
@@ -662,6 +666,7 @@ select {
     transform: translateY(-50%);
     right: 20px;
     pointer-events: none;
+    z-index: 2;
   }
 
   input,
@@ -709,5 +714,70 @@ select {
     padding: 12px;
     background: $color6;
     padding-left: 60px;
+  }
+}
+
+.custom-select-container {
+  border-radius: 10px;
+  background: $color4;
+
+  .selected-text {
+    padding: 17px;
+    cursor: pointer;
+    opacity: 0.3;
+    font-weight: 00;
+    font-weight: 100;
+    font-size: 14px;
+  }
+
+  // .selected-text::after {
+  //   content: "";
+  //   position: absolute;
+  //   right: 10px;
+  //   top: 16px;
+  //   border: 7px solid transparent;
+  //   border-color: black transparent transparent transparent;
+  // }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .select-options {
+    position: absolute;
+    margin-top: 1px;
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  li {
+    list-style-type: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    background: $color4;
+  }
+
+  li:last-child {
+    border-bottom: none;
+  }
+
+  li:hover {
+    background: $color6;
+  }
+
+  .show-dropdown-options {
+    min-height: 50px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .hide-dropdown-options {
+    min-height: 0;
+    opacity: 0;
+    visibility: hidden;
   }
 }

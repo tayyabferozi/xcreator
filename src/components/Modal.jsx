@@ -100,15 +100,23 @@ const Modal = ({
                           label="Valid Date"
                           select
                           placeholder="MM"
-                          options={[{ text: "" }]}
+                          options={[
+                            { text: "Option 1", value: "option-1" },
+                            { text: "Option 2", value: "option-2" },
+                            { text: "Option 3", value: "option-3" },
+                          ]}
                         />
                       </div>
                       <div className="col">
                         <Input
                           label="&nbsp;"
                           select
-                          placeholder="MM"
-                          options={[{ text: "" }]}
+                          placeholder="YYYY"
+                          options={[
+                            { text: "Option 1", value: "option-1" },
+                            { text: "Option 2", value: "option-2" },
+                            { text: "Option 3", value: "option-3" },
+                          ]}
                         />
                       </div>
                     </div>

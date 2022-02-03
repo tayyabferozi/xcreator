@@ -1,5 +1,9 @@
 import React from "react";
 import clsx from "clsx";
+// import { Select, Option } from "./select/index";
+import Select from "./select/select";
+import Option from "./select/option";
+
 const Input = ({ id, select, options, label, type, icon, alt, ...rest }) => {
   return (
     <>
@@ -8,7 +12,7 @@ const Input = ({ id, select, options, label, type, icon, alt, ...rest }) => {
           <h6 className="small">{label}</h6>
         </label>
       )}
-      <div className="custom-form-control">
+      <div className={clsx("custom-form-control", { select: select })}>
         {select ? (
           <>
             <img
@@ -16,13 +20,17 @@ const Input = ({ id, select, options, label, type, icon, alt, ...rest }) => {
               src="./assets/vectors/select-right-icon.svg"
               alt="arrow"
             />
-            <select {...rest}>
+            <Select {...rest}>
               {options.map((el, idx) => {
-                const { text } = el;
+                const { text, value } = el;
 
-                return <option key={"opt" + idx}>{text}</option>;
+                return (
+                  <Option value={value} key={"opt" + idx}>
+                    {text}
+                  </Option>
+                );
               })}
-            </select>
+            </Select>
           </>
         ) : (
           <>

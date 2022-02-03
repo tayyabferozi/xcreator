@@ -12,9 +12,6 @@ function App() {
         <Route path="/" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/modals" element={<Modals />} />
-        {/* <Route path="*" Navigate={<Navigate to="/" />} /> */}
-        {/* <Route path="*" /> */}
-        {/* <Redirect to="/" /> */}
       </Routes>
     </BrowserRouter>
   );

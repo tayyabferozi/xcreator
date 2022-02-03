@@ -43,6 +43,10 @@ main {
     top: -71px;
     opacity: 0.1;
     background: radial-gradient(circle, #fff 0%, rgba(2, 0, 36, 0) 70%);
+
+    @media screen and (min-width: 576px) {
+      display: none;
+    }
   }
 }
 
@@ -86,6 +90,7 @@ main {
       width: 100%;
       padding-top: 100%;
       pointer-events: none;
+
       @media screen and (min-width: 801px) {
         display: none;
       }
@@ -126,6 +131,10 @@ main {
       padding-right: var(--section-padding);
     }
 
+    .label {
+      background-image: url(../vectors/cbimage.png);
+    }
+
     p.sub-title {
       max-width: 250px;
       background: linear-gradient(45deg, #fff, $color10 100%);
@@ -152,6 +161,20 @@ main {
       left: 50%;
       bottom: 32px;
       transform: translateX(-50%);
+
+      .bg {
+        @media screen and (max-width: 575px) and (min-width: 500px) {
+          top: -10px;
+        }
+
+        @media screen and (max-width: 499px) and (min-width: 400px) {
+          top: 0vw;
+        }
+
+        @media screen and (max-width: 400px) {
+          top: 35%;
+        }
+      }
     }
   }
 
